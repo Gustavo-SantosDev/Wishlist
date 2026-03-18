@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --cor-principal: #EBE7DA;
+    --cor-secundaria: #D6CFC2;
+    --cor-destaque: #EBC87F;
+
+    --cor-texto: #2B2B2B;
+}
+
+body{
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--cor-principal);
+}
+
+#box-login form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    background-color: var(--cor-secundaria);
+
+    padding: 20px;
+}
