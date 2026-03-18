@@ -3,6 +3,8 @@ body{
     background-color: var(--cor-principal);
 
     font-family: var(--font-principal);
+
+    overflow-y: hidden;
 }
 
 header{
@@ -11,6 +13,7 @@ header{
     flex-direction: column;
 
     background-color: var(--cor-secundaria);
+    position: relative;
 }
 
 
@@ -19,7 +22,9 @@ header{
     justify-content: space-between;
     align-items: center;
 
-    margin: 0 25px;
+    padding: 6px 25px;
+
+    z-index: 999;
 }
 
 header h1{
@@ -30,12 +35,24 @@ header h1{
     display: flex;
 }
 
-.user-name-cash{
+.user-name-options{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin-right: 15px;
+    gap: 5px;
+    margin-right: 10px;
+}
+
+.arrow-down{
+    border: none;
+    background-color: transparent;
+
+    font-weight: 600;
+    color: var(--cor-texto);
+
+    padding: 10px;
+
+    cursor: pointer;
 }
 
 .st-floor-header a{
@@ -55,17 +72,203 @@ header h1{
     cursor: pointer;
 }
 
+.st-floor-header.active{
+    box-shadow: 0 2px 2px rgba(255, 255, 255, 0.37);
+}
 
-.nd-floor-header{
+
+/* segundo header invisível inicialmente e dentro do fluxo do primeiro */
+.nd-floor-header {
+    position: absolute; /* abaixo do st-floor-header, não sobrepondo */
+    top: 100%;
+    width: 100%;
     text-align: end;
 
-    width: 100%;
-    padding: 6px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: row;
+
+    max-height: 0; /* altura zero para ficar colapsado */
+    overflow: hidden; /* conteúdo escondido quando fechad0 */
+    padding: 0 20px;
     background-color: var(--cor-destaque);
     color: var(--cor-texto2);
+
+    opacity: 0; /* transparente fechado */
+    transition: max-height 0.2s ease, opacity 0.35s ease, padding 0.35s ease;
+    z-index: 998;
+
+}
+
+.nd-floor-header.active {
+    max-height: 120px; /* expande para mostrar conteúdo */
+    padding: 10px 20px;
+    opacity: 1; /* torna visível */
+    z-index: 998;
+}
+
+.user-cash{
+    border: none;
+    border-radius: 3px;
+
+    font-weight: 600;
+    padding: 5px;
+    margin-right: 10px;
+
+    background-color: var(--cor-secundaria);
+
+    cursor: pointer;
 }
 
 
 main{
-    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    min-height: 100vh; 
+}
+
+.cash-window{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    padding: 20px 25px;
+    gap: 10px;
+
+    margin: 0 auto;
+
+    border-radius: 3px;
+
+    background-color: var(--cor-secundaria);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.1s ease-in-out, transform 0.3s ease;
+}
+
+.cash-window.visible{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.cash-window h2{
+    margin-bottom: 2px;
+}
+
+.cash-window button{
+    margin-top: 10px;
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 3px;
+
+    background-color: var(--cor-destaque);
+    color: var(--cor-texto2);
+    
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cash-window button:hover{
+    transform: translateY(-1px) scale(1.02);
+}
+
+.box-wallet{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    flex-direction: column;
+
+    background-color: white;
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 3px;
+}
+
+.gen-wallet{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   
+
+    text-align: center;
+
+    width: 100%;
+
+    gap: 10px;
+
+    font-weight: 600;
+}
+
+.gen-wallet input{
+    width: 50%;
+
+    padding: 10px;
+
+    border-radius: var(--input-radius);
+    border: 1px solid var(--cor-destaque);
+
+    font-family: var(--font-principal);
+
+    transition: var(--input-transition);
+}
+
+.gen-wallet input:focus{
+    outline: none;
+    border: var(--input-focus-border);
+    box-shadow: var(--input-focus-box-shadow);
+}
+
+.gen-wallet input:hover {
+  border-color: var(--cor-principal);
+}
+
+.gen-wallet button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid var(--cor-destaque);
+    border-radius: 50%;
+
+    text-align: center;
+    line-height: normal;
+    padding: 0;
+    margin: 0;
+
+    background-color: white;
+
+    height: 25px;
+    width: 25px;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.gen-wallet button:hover{
+    transform: translateY(-1px) scale(1.02);
+}
+
+.add-wallet button{
+    color: rgb(0, 152, 0);
+    margin-top: 3px;
+}
+
+.remove-wallet button{
+    color: rgb(186, 0, 0);
+    padding-bottom: 3px;
 }
