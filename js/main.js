@@ -1,0 +1,1 @@
+let btnAdd = document.getElementById('btn-add-item');

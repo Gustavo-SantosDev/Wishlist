@@ -3,8 +3,6 @@ body{
     background-color: var(--cor-principal);
 
     font-family: var(--font-principal);
-
-    overflow-y: hidden;
 }
 
 header{
@@ -124,13 +122,112 @@ header h1{
 
 main{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     flex-direction: column;
-    
-    min-height: 100vh; 
+
+    min-height: 100dvh; 
+    width: 100%;
+    max-width: 800px;
+
+    padding-top: 80px ;
+    margin: 0 auto;
 }
 
+.box-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    flex-direction: column;
+
+    padding: 25px;
+
+    border-radius: 10px;
+    background-color: var(--cor-secundaria);
+}
+
+.header-items, 
+.box-gen-items{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+
+    width: 100%;
+
+    background-color: var(--cor-destaque);
+    border-radius: 3px;
+
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.box-items{
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 160px));
+    gap: 10px;
+
+
+    background-color: var(--cor-texto2);
+    border-radius: 3px;
+
+    padding: 15px;  
+    
+    min-height: 0;
+    min-height: 500px;
+    max-height: 80vh;
+    width: 100%;
+
+    overflow: auto;
+
+}
+
+.itemW{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 210px;
+    
+    padding: 10px;
+
+    background-color: var(--cor-principal);
+}
+
+.box-pics{
+    text-align: center;
+    width: 100%;
+    min-height: 100px;
+
+    background-color: var(--cor-texto2);
+    margin-bottom: 10px;
+}
+
+.box-name-price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.box-mbt{
+    margin-bottom: 6px;
+}
+
+
+
+
+
 .cash-window{
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -150,6 +247,8 @@ main{
     visibility: hidden;
     transform: translateY(-10px);
     transition: opacity 0.1s ease-in-out, transform 0.3s ease;
+
+    z-index: 997;
 }
 
 .cash-window.visible{
@@ -231,7 +330,7 @@ main{
 }
 
 .gen-wallet input:hover {
-  border-color: var(--cor-principal);
+    border-color: var(--cor-principal);
 }
 
 .gen-wallet button{
