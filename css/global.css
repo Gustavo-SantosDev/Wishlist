@@ -29,3 +29,7 @@
 a{
     text-decoration: none;
 }
+
+input::placeholder {
+  color: #999;
+}
