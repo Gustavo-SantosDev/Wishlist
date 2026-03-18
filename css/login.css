@@ -7,9 +7,12 @@
 :root{
     --cor-principal: #EBE7DA;
     --cor-secundaria: #D6CFC2;
-    --cor-destaque: #EBC87F;
+    --cor-destaque: #65615b;
 
     --cor-texto: #2B2B2B;
+    --cor-texto2: #ffffff;
+
+    --font-principal: 'Poppins', sans-serif;
 }
 
 body{
@@ -20,16 +23,124 @@ body{
     align-items: center;
 
     background-color: var(--cor-principal);
+    font-family: var(--font-principal);
 }
 
-#box-login form{
+form{
     display: flex;
     justify-content: center;
-    align-items: center;
 
     flex-direction: column;
 
     background-color: var(--cor-secundaria);
 
-    padding: 20px;
+    padding: 25px;
+
+    border-radius: 6px;
 }
+
+h1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+label{
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+input{
+    width: 100%;
+
+    padding: 10px;
+
+    border: none;
+    border-radius: 3px;
+
+    outline: none;
+
+    font-family: var(--font-principal);
+    transition: 0.3s ease;
+}
+
+input[type="email"]{
+    margin-bottom: 12px;
+}
+
+input[type="password"]{
+    margin-bottom: 20px;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+input:focus{
+    outline: none;
+    border: 1px solid var(--cor-destaque);
+    box-shadow: 0 0 0 1px var(--cor-destaque);
+}
+
+input:hover {
+  border-color: var(--cor-principal);
+}
+
+.auth-buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    margin-top: 6px;
+}
+
+.btn{
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-login{
+    background-color: var(--cor-destaque);
+    border: 1px solid var(--cor-destaque);
+    margin-right: 5px;
+    transition: all 0.4s ease;
+}
+
+.btn-login:hover{
+    background-color: var(--cor-principal);
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-principal);
+    transform: translateY(-1px) scale(1.02);
+}
+
+.btn-register{
+    background-color: transparent;
+    color: var(--cor-destaque);
+    border: 1px solid var(--cor-destaque);
+    transition: all 0.4s ease;
+}
+
+.btn-register:hover{
+    background-color: var(--cor-texto);
+    border: 1px solid var(--cor-texto);
+    color: var(--cor-texto2);
+    transform: translateY(-1px) scale(1.02);
+}
+
+a{
+    text-decoration: none;
+
+    color: var(--cor-texto2);
+
+    font-weight: 600;
+}
+
+form small{
+    margin-top: 6px;
+    text-align: center;
+}
+
+form small a{
+    color: var(--cor-texto);
+}
+
+
