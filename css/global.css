@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --cor-principal: #EBE7DA;
+    --cor-secundaria: #D6CFC2;
+    --cor-destaque: #65615b;
+
+    --cor-texto: #2B2B2B;
+    --cor-texto2: #ffffff;
+
+    --font-principal: 'Poppins', sans-serif;
+}
