@@ -21,7 +21,7 @@
     --input-hover: var(--cor-principal);
     --input-placeholder: #999;
     --input-focus-border: 1px solid var(--cor-destaque);
-    --input-focus-box-shadow: box-shadow: 0 0 0 1px var(--cor-destaque);
+    --input-focus-box-shadow: 0 0 0 1px var(--cor-destaque);
 
     --input-marginB-last: 20px;
 }
