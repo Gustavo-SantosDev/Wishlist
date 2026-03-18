@@ -1,0 +1,118 @@
+body{
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: var(--font-principal);
+
+    background-color: var(--cor-principal);
+}
+
+form{
+    display: flex;
+    justify-content: center;
+
+    flex-direction: column;
+
+    background-color: var(--cor-secundaria);
+
+    padding: 25px 35px;
+
+    border-radius: 6px;
+}
+
+h4{
+    text-align: center;
+
+    margin: 0 auto 10px auto; /* centraliza horizontalmente */
+    
+    width: 70%;
+}
+
+label{
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+input{
+    width: 100%;
+
+    padding: 10px;
+    margin-bottom: 12px;
+
+    border-radius: var(--input-radius);
+    border: 1px solid transparent;
+
+    font-family: var(--font-principal);
+
+    transition: var(--input-transition);
+}
+
+input #user-date{
+    margin-bottom: var(--input-marginB-last);
+}
+
+input:focus{
+    outline: none;
+    border: var(--input-focus-border);
+    box-shadow: var(--input-focus-box-shadow);
+}
+
+input:hover {
+    border-color: var(--cor-principal);
+}
+
+input::placeholder{
+    color: var(--input-placeholder);
+}
+
+.auth-btn{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    margin-top: 6px;
+}
+
+.btn{
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+a{
+    text-decoration: none;
+
+    color: var(--cor-texto2);
+
+    font-weight: 600;
+}
+
+.btn-send{
+    background-color: var(--cor-destaque);
+    border: 1px solid var(--cor-destaque);
+    margin-right: 5px;
+    transition: all 0.4s ease;
+}
+
+.btn-send:hover{
+    background-color: var(--cor-principal);
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-principal);
+    transform: translateY(-1px) scale(1.02);
+}
+
+.btn-back{
+    background-color: transparent;
+    color: var(--cor-destaque);
+    border: 1px solid var(--cor-destaque);
+    transition: all 0.4s ease;
+}
+
+.btn-back:hover{
+    background-color: var(--cor-texto);
+    border: 1px solid var(--cor-texto);
+    color: var(--cor-texto2);
+    transform: translateY(-1px) scale(1.02);
+}
