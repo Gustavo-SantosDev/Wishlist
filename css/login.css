@@ -54,19 +54,6 @@ input[type="password"]{
     margin-bottom: 20px;
 }
 
-input::placeholder {
-  color: #999;
-}
-
-input:focus{
-    outline: none;
-    border: 1px solid var(--cor-destaque);
-    box-shadow: 0 0 0 1px var(--cor-destaque);
-}
-
-input:hover {
-  border-color: var(--cor-principal);
-}
 
 .auth-buttons{
     display: flex;

@@ -2,11 +2,14 @@ let headerNd = document.querySelector('.nd-floor-header');
 let headerSt = document.querySelector('.st-floor-header');
 let arrowBtn = document.getElementById('arrow-v');
 
+const overlay = document.getElementById('overlay');
+
 // quando clicar, alterna a classe ativa no segundo header
 // e atualiza acessibilidade + ícone de direção
 arrowBtn.addEventListener('click', () => {
     headerNd.classList.toggle('active');
     headerSt.classList.toggle('active');
+
 
     const isOpen = headerNd.classList.contains('active');
     arrowBtn.setAttribute('aria-expanded', isOpen);
@@ -19,10 +22,14 @@ let windowSaldo = document.querySelector('.cash-window');
 
 btnSaldo.addEventListener('click', ()=>{
     windowSaldo.classList.toggle('visible');
+    overlay.classList.toggle('active');
+    btnSaldo.classList.toggle('active');
 })
 
 btnBackMain.addEventListener('click', ()=>{
     windowSaldo.classList.toggle('visible');
+    btnSaldo.classList.toggle('active');
+    overlay.classList.toggle('active');
 })
 
 let userCashStr = document.getElementById('user-amount');
@@ -84,3 +91,8 @@ rmvBtn.addEventListener('click', () =>{
     }
 })
 
+overlay.addEventListener('click', () => {
+    overlay.classList.toggle('active');
+    btnSaldo.classList.toggle('active');
+    windowSaldo.classList.toggle('visible');
+})

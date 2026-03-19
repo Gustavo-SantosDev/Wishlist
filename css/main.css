@@ -1,9 +1,26 @@
 body{
-    height: 100vh;
+    height: 100dvh;
     background-color: var(--cor-principal);
 
     font-family: var(--font-principal);
+    overflow: hidden;
 }
+
+#overlay {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+#overlay.active{
+    display: block;
+}
+
 
 header{
     display: flex;
@@ -22,12 +39,9 @@ header{
 
     padding: 6px 25px;
 
-    z-index: 999;
+    z-index: 9;
 }
 
-header h1{
-    width: 100%;
-}
 
 .user-name-exit{
     display: flex;
@@ -103,7 +117,7 @@ header h1{
     max-height: 120px; /* expande para mostrar conteúdo */
     padding: 10px 20px;
     opacity: 1; /* torna visível */
-    z-index: 998;
+    
 }
 
 .user-cash{
@@ -119,29 +133,40 @@ header h1{
     cursor: pointer;
 }
 
+.user-cash.active{
+    background-color: var(--cor-destaque);
+}
+
+
 
 main{
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
     flex-direction: column;
 
-    min-height: 100dvh; 
+    height: 100dvh;
+    overflow: hidden;
+
     width: 100%;
     max-width: 800px;
-
-    padding-top: 80px ;
     margin: 0 auto;
+
+    padding-top: 60px;
 }
+
+
 
 .box-main{
     display: flex;
     justify-content: center;
     align-items: center;
 
+    flex-direction: column;
+
     width: 100%;
 
-    flex-direction: column;
+    height: calc(100dvh - 195px); /* 80px = altura do header */
+    overflow: hidden;
+    margin-top: 0;
 
     padding: 25px;
 
@@ -165,26 +190,47 @@ main{
     margin-bottom: 10px;
 }
 
+.input-gen{
+    padding: 10px;
+
+    border: 1px solid transparent;
+    border-radius: 3px;
+
+    outline: none;
+
+    font-family: var(--font-principal);
+    transition: 0.3s ease;
+}
+
+.input-gen:focus{
+    outline: none;
+    border: 1px solid var(--cor-principal);
+    box-shadow: var(--input-focus-box-shadow);
+}
+
 .box-items{
     display: grid;
+    justify-content: flex-start;
     align-items: flex-start;
     grid-template-columns: repeat(auto-fit, minmax(150px, 160px));
     gap: 10px;
 
+    flex: 1;
 
     background-color: var(--cor-texto2);
     border-radius: 3px;
 
-    padding: 15px;  
+    padding: 15px 30px;  
     
     min-height: 0;
-    min-height: 500px;
-    max-height: 80vh;
+
     width: 100%;
 
-    overflow: auto;
+    overflow-y: auto;
 
+    scrollbar-color: var(--cor-destaque) #ffffff; /* thumb e track */
 }
+
 
 .itemW{
     display: flex;
@@ -227,7 +273,12 @@ main{
 
 
 .cash-window{
-    position: absolute;
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(20px); /* combina os dois */
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -237,7 +288,6 @@ main{
     padding: 20px 25px;
     gap: 10px;
 
-    margin: 0 auto;
 
     border-radius: 3px;
 
@@ -245,8 +295,8 @@ main{
 
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.1s ease-in-out, transform 0.3s ease;
+
+    transition: opacity 0.4s ease-in-out, transform 0.8s ease;
 
     z-index: 997;
 }
@@ -254,7 +304,7 @@ main{
 .cash-window.visible{
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translate(-50%, -50%) translateY(0);
 }
 
 .cash-window h2{
