@@ -30,6 +30,27 @@ a{
     text-decoration: none;
 }
 
-input::placeholder {
-  color: #999;
+input{
+    border: 1px solid transparent;
+    border-radius: 3px;
+
+    outline: none;
+
+    font-family: var(--font-principal);
+    transition: 0.3s ease;
 }
+
+input::placeholder {
+    color: #999;
+}
+
+input:focus{
+    outline: none;
+    border: var(--input-focus-border);
+    box-shadow: var(--input-focus-box-shadow);
+}
+
+input:hover {
+    border-color: var(--cor-principal);
+}
+
