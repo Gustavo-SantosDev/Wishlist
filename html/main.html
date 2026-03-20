@@ -36,7 +36,7 @@
                 <p>Adicionar filtros</p>
             </div>
             <div class="box-gen-items">
-                <label for="add-img"></label>
+                <label for="add-img" class="fake-ipt-img">Selecionar Imagem</label>
                 <input type="file" id="add-img" accept="image/*" class="input-img">
 
                 <label for="add-name"></label>
@@ -45,21 +45,21 @@
                 <label for="add-value"></label>
                 <input type="number" id="add-value" name="new-item-value" class="input-gen" placeholder="Valor do item">
 
-                <button id="btn-add-item">ADD</button>
+                <button id="btn-add-item" class="btn-add-item">ADD</button>
             </div>
             <div class="box-items">
                 <div class="itemW" id="itemId">
                     <div class="box-pics" id="item-photo">foto</div>
                     <div class="box-name-price box-mbt">
-                        <p id="item-name">Nome</p>
-                        <p id="item-value">valor</p>
+                        <p class="item-name">Nome</p>
+                        <p class="item-value">valor</p>
                     </div>
                     <div class="box-progress box-mbt">
-                        <span id="item-progress">----barra----</span>
+                        <span class="item-progress">----barra----</span>
                     </div>
                     <div class="cpt-del">
-                        <button>cpt</button>
-                        <button>del</button>
+                        <button class="btn-complete">cpt</button>
+                        <button class="btn-delete">del</button>
                     </div>
                 </div>
             </div>

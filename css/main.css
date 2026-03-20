@@ -188,10 +188,12 @@ main{
 
     padding: 20px;
     margin-bottom: 10px;
+    gap: 10px;
 }
 
 .input-gen{
     padding: 10px;
+    width: 100%;
 
     border: 1px solid transparent;
     border-radius: 3px;
@@ -203,13 +205,45 @@ main{
 }
 
 .input-img{
+    display: none;
+}
 
+.fake-ipt-img{
+    padding: 10px;
+    width: 100%;
+
+    text-align: center;
+    font-size: 14px;
+    font-family: var(--font-principal);
+    color: var(--input-placeholder);
+
+    background-color: white;
+
+    border-radius: 3px;
+
+    cursor: pointer;
 }
 
 .input-gen:focus{
     outline: none;
     border: 1px solid var(--cor-principal);
     box-shadow: var(--input-focus-box-shadow);
+}
+
+.btn-add-item{
+    padding:10px;
+
+    border: 1px solid var(--cor-principal);
+    border-radius: 3px;
+
+    background-color: var(--cor-principal);
+
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-add-item:hover{
+    background-color: var(--cor-secundaria);
 }
 
 .box-items{
