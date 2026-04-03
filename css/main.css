@@ -277,9 +277,10 @@ main{
     flex-direction: column;
 
     width: 100%;
-    max-width: 210px;
+    min-width: 140px;
     
     padding: 10px;
+    border-radius: 3px;
 
     background-color: var(--cor-principal);
 }
@@ -287,10 +288,20 @@ main{
 .box-pics{
     text-align: center;
     width: 100%;
-    min-height: 100px;
+    aspect-ratio: 16/9; /* proporção widescreen, ajuste se quiser */
 
     background-color: var(--cor-texto2);
     margin-bottom: 10px;
+
+    border-radius: 3px;
+    
+}
+
+.box-pics img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
 }
 
 .box-name-price{
@@ -304,6 +315,28 @@ main{
 
 .box-mbt{
     margin-bottom: 6px;
+}
+
+.cpt-del{
+    display: flex;
+    gap: 5px;
+}
+
+.btn{
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: none;
+}
+
+.btn-complete{
+    color: var(--cor-principal);
+    background-color: var(--cor-destaque);
+}
+
+
+.btn-delete{
+    color: var(--cor-texto);
+    background-color: var(--cor-secundaria);
 }
 
 
