@@ -1,17 +1,31 @@
 let btnAdd = document.getElementById('btn-add-item');
 
-
-
 let boxItem = document.querySelector('.box-items');
 
 btnAdd.addEventListener('click', ()=>{
     const info = getInfo();
     criarCard(info);
+    const labelImg = document.querySelector('.fake-ipt-img');
+    labelImg.textContent = 'Selecionar Imagem';
+    labelImg.style.color = '#939393';
+    labelImg.style.fontWeight = 'normal';
 })
+
+const inputImg = document.getElementById('add-img');
+const labelImg = document.querySelector('.fake-ipt-img');
+
+inputImg.addEventListener('change', () => {
+    const arquivo = inputImg.files[0];
+    if(arquivo){
+        labelImg.textContent = arquivo.name;
+        labelImg.style.color = 'black';
+        labelImg.style.fontWeight = '600';
+    }
+});
 
 function getInfo(){
     const inputImg = document.getElementById('add-img');
-    const arquivo = inputImg.files[0]; // era 'arquive'
+    const arquivo = inputImg.files[0]; 
     const imgURL = arquivo ? URL.createObjectURL(arquivo) : null;
 
     const inputName = document.getElementById('add-name');
@@ -113,3 +127,16 @@ function criarCard(info){
 
     boxItem.appendChild(card);
 }
+
+function metaItem(){
+    let userCashStr = document.getElementById('user-amount');
+    let userCashNb = Number(userCashStr.textContent);
+    let metaStr = document.querySelector('.item-value');
+    let metaNb = Number(metaStr);
+
+
+
+
+}
+
+
