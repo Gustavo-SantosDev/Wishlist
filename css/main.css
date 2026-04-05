@@ -277,9 +277,10 @@ main{
     flex-direction: column;
 
     width: 100%;
-    max-width: 210px;
+    min-width: 140px;
     
     padding: 10px;
+    border-radius: 3px;
 
     background-color: var(--cor-principal);
 }
@@ -287,10 +288,20 @@ main{
 .box-pics{
     text-align: center;
     width: 100%;
-    min-height: 100px;
+    aspect-ratio: 16/9; /* proporção widescreen, ajuste se quiser */
 
     background-color: var(--cor-texto2);
     margin-bottom: 10px;
+
+    border-radius: 3px;
+    
+}
+
+.box-pics img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
 }
 
 .box-name-price{
@@ -302,8 +313,62 @@ main{
     gap: 5px;
 }
 
+.item-name{
+    font-weight: 600;
+}
+
+.item-value{
+    margin-bottom: 5px;
+}
+
 .box-mbt{
     margin-bottom: 6px;
+}
+
+.box-progress{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.area-progress{
+    width: 100%;
+    height: 15px;
+
+    background-color: white;
+
+    border-radius: 10px;
+
+    padding: 3px;
+}
+
+.item-progress{
+    height: 100%;
+    width: 10%;
+    background-color: lightgreen;
+    border-radius: 10px;
+}
+
+.cpt-del{
+    display: flex;
+    gap: 5px;
+}
+
+.btn{
+    padding: 8px 15px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-complete{
+    color: var(--cor-principal);
+    background-color: var(--cor-destaque);
+}
+
+
+.btn-delete{
+    color: var(--cor-texto);
+    background-color: var(--cor-secundaria);
 }
 
 

@@ -1,17 +1,82 @@
 let btnAdd = document.getElementById('btn-add-item');
 
+let boxItem = document.querySelector('.box-items');
+
 btnAdd.addEventListener('click', ()=>{
-    criarCard();
+    const info = getInfo();
+    criarCard(info);
+    const labelImg = document.querySelector('.fake-ipt-img');
+    labelImg.textContent = 'Selecionar Imagem';
+    labelImg.style.color = '#939393';
+    labelImg.style.fontWeight = 'normal';
 })
 
-function criarCard(){
+const inputImg = document.getElementById('add-img');
+const labelImg = document.querySelector('.fake-ipt-img');
+
+inputImg.addEventListener('change', () => {
+    const arquivo = inputImg.files[0];
+    if(arquivo){
+        labelImg.textContent = arquivo.name;
+        labelImg.style.color = 'black';
+        labelImg.style.fontWeight = '600';
+    }
+});
+
+function getInfo(){
+    const inputImg = document.getElementById('add-img');
+    const arquivo = inputImg.files[0]; 
+    const imgURL = arquivo ? URL.createObjectURL(arquivo) : null;
+
+    const inputName = document.getElementById('add-name');
+    const inputValue = document.getElementById('add-value');
+
+    if(!arquivo){
+        alert('Adicione uma imagem');
+        return;
+    }
+
+    if(inputName.value.trim() === ''){
+        alert('Adicione um nome');
+        return;
+    }
+
+    if(inputValue.value.trim() === ''){
+        alert('Adicione um valor');
+        return;
+    }
+
+
+    const name = inputName.value;  // salva antes de limpar
+    const value = Number(inputValue.value);
+
+    inputImg.value = '';
+    inputName.value = '';
+    inputValue.value = '';
+
+    return {
+        imgURL,
+        name,
+        value
+    }
+
+}
+
+
+function criarCard(info){
     // 1. Card corpo
     const card = document.createElement('div');
     card.classList.add('itemW');
 
     // 2. Imagem do card
     const img = document.createElement('div');
-    img.classList.add('box-pics')
+    img.classList.add('box-pics');
+
+    if (info.imgURL) {
+    const imgElement = document.createElement('img');
+    imgElement.src = info.imgURL;
+    img.appendChild(imgElement);    
+    }
 
     //3. Detalhes card
     const details = document.createElement('div');
@@ -20,18 +85,26 @@ function criarCard(){
     //4. Nome do item
     const itemName = document.createElement('p');
     itemName.classList.add('item-name');
+    itemName.textContent = info.name;
 
     //5. Valor do item
     const itemValue = document.createElement('p');
     itemValue.classList.add('item-value');
+    itemValue.textContent = `R$: ${parseFloat(info.value).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
     //6. Box da barra de progresso
     const progressBar = document.createElement('div');
     progressBar.classList.add('box-progress');
 
-    //7. Barra de progresso
+    //7. Area Barra de progresso
+    const areaProgress = document.createElement('div');
+    areaProgress.classList.add('area-progress');
+
+    //7.1 Barra de progresso
     const itemProgress = document.createElement('div');
     itemProgress.classList.add('item-progress');
+
+    metaItem(itemProgress, info.value);
 
     //8. Box btn 
     const boxBtn = document.createElement('div');
@@ -39,24 +112,61 @@ function criarCard(){
 
     //9. btn complete
     const btnCpt = document.createElement('button');
-    btnCpt.classList.add('btn-complete');
+    btnCpt.classList.add('btn-complete', 'btn');
+    btnCpt.textContent = 'cpt';
 
-    //9. btn delete
+    //10. btn delete
     const btnDel = document.createElement('button');
-    btnDel.classList.add('btn-delete');
+    btnDel.classList.add('btn-delete', 'btn');
+    btnDel.textContent = 'del';
+
+    details.appendChild(itemName);
+    details.appendChild(itemValue);
+    progressBar.appendChild(areaProgress);
+    areaProgress.appendChild(itemProgress);
+    boxBtn.appendChild(btnCpt);
+    boxBtn.appendChild(btnDel);
+
+    card.appendChild(img);
+    card.appendChild(details);
+    card.appendChild(progressBar);
+    card.appendChild(boxBtn);
+
+    boxItem.appendChild(card);
 }
 
-          //  <div class="itemW" id="itemId">
-           //         <div class="box-pics" id="item-photo">foto</div>
-             //       <div class="box-name-price box-mbt">
-              //          <p class="item-name">Nome</p>
-              //          <p class="item-value">valor</p>
-              //      </div>
-              //      <div class="box-progress box-mbt">
-              //          <span class="item-progress">----barra----</span>
-               //     </div>
-              //      <div class="cpt-del">
-              //          <button class="btn-complete">cpt</button>
-              //          <button class="btn-delete">del</button>
-               //     </div>
-               // </div>
+function metaItem(fill, meta){
+    let saldoStr = document.getElementById('user-amount');
+    let saldoNb = Number(saldoStr.textContent.replace(/\./g, "").replace(",", "."));
+
+    let metaNb;
+
+    if(typeof meta === 'number'){
+        metaNb = meta;
+    }else{
+        metaNb = Number(meta.textContent.replace("R$:", " ").replace(/\./g, "").replace(",", "."));
+    }
+
+    let calcUCM = (saldoNb / metaNb) * 100;
+
+    fill.style.width = calcUCM + '%';
+}
+
+function atualizarBarras(){
+    let cards = document.querySelectorAll('.itemW');
+
+    cards.forEach(card => {
+        let meta = card.querySelector('.item-value');
+        
+        let fill = card.querySelector('.item-progress');
+
+        metaItem(fill, meta);
+    });
+}
+
+
+
+
+// criando barra de progresso
+
+

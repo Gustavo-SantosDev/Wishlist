@@ -63,15 +63,17 @@ addBtn.addEventListener('click', () =>{
     if(validNumber == undefined){
         return;
     } else{
-        let oldValue = Number(userCashStr.textContent);
+        let oldValue = Number(userCashStr.textContent.replace(/\./g, "").replace(",", "."));
         let newValue = oldValue + validNumber;
         
     
 
-        userCashStr.textContent = newValue.toFixed(2);
-        userWallet.textContent = newValue.toFixed(2);
+        userCashStr.textContent = newValue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        userWallet.textContent = newValue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
         inputAddCash.value = '';
+
+        atualizarBarras();
     }
 })
 
@@ -81,13 +83,15 @@ rmvBtn.addEventListener('click', () =>{
     if(validNumber == undefined){
         return;
     } else{
-        let oldValue = Number(userCashStr.textContent);
+        let oldValue = Number(userCashStr.textContent.replace(/\./g, "").replace(",", "."));
         let newValue = oldValue - validNumber;
 
-        userCashStr.textContent = newValue.toFixed(2);
-        userWallet.textContent = newValue.toFixed(2);
+        userCashStr.textContent = newValue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        userWallet.textContent = newValue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
         inputRmvCash.value = '';
+
+        atualizarBarras();
     }
 })
 
