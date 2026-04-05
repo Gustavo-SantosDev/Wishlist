@@ -1,9 +1,22 @@
+function modoDark(){
+    body.classList.toggle('night-mode');
+}
+
+let body = document.querySelector('body');
+
+let btnNight = document.querySelector('.mode');
+
+btnNight.addEventListener('click', ()=>{
+    modoDark(body);
+})
+
 let btnAdd = document.getElementById('btn-add-item');
 
 let boxItem = document.querySelector('.box-items');
 
 btnAdd.addEventListener('click', ()=>{
     const info = getInfo();
+    if(!info) return;
     criarCard(info);
     const labelImg = document.querySelector('.fake-ipt-img');
     labelImg.textContent = 'Selecionar Imagem';
@@ -64,6 +77,8 @@ function getInfo(){
 
 
 function criarCard(info){
+    if(!info) return;
+
     // 1. Card corpo
     const card = document.createElement('div');
     card.classList.add('itemW');
@@ -147,9 +162,24 @@ function metaItem(fill, meta){
         metaNb = Number(meta.textContent.replace("R$:", " ").replace(/\./g, "").replace(",", "."));
     }
 
-    let calcUCM = (saldoNb / metaNb) * 100;
+    let calcUCM = Math.min((saldoNb / metaNb) * 100, 100);
 
     fill.style.width = calcUCM + '%';
+
+    //Tentando trocar barra de progresso por texto 'Completo!' ao preencher a barra
+    //Perfeito! Mas tem um detalhe: toda vez que o atualizarBarras rodar, ele vai criar um novo p e adicionar novamente, acumulando vários "Completado!" no mesmo card.
+    // Precisa verificar se o p já existe antes de criar. Tenta usar o querySelector no fill.parentElement para checar se já tem um p lá dentro antes de criar um novo.
+    // Tenta aí!
+
+    // if(calcUCM >= 100){
+
+    //     let p = document.createElement('p');
+    //     p.textContent = 'Completado!'
+
+    //     fill.style.display = 'none';
+
+    //     fill.parentElement.appendChild(p);
+    // }
 }
 
 function atualizarBarras(){

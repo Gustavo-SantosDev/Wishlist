@@ -4,6 +4,8 @@ body{
 
     font-family: var(--font-principal);
     overflow: hidden;
+
+    transition: 0.4s ease;
 }
 
 #overlay {
@@ -45,6 +47,13 @@ header{
 
 .user-name-exit{
     display: flex;
+}
+
+.mode{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
 .user-name-options{
@@ -109,7 +118,7 @@ header{
 
     opacity: 0; /* transparente fechado */
     transition: max-height 0.2s ease, opacity 0.35s ease, padding 0.35s ease;
-    z-index: 998;
+    z-index: 9;
 
 }
 
@@ -343,7 +352,6 @@ main{
 
 .item-progress{
     height: 100%;
-    width: 10%;
     background-color: lightgreen;
     border-radius: 10px;
 }
@@ -370,10 +378,6 @@ main{
     color: var(--cor-texto);
     background-color: var(--cor-secundaria);
 }
-
-
-
-
 
 .cash-window{
     position: fixed;

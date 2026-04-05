@@ -1,0 +1,54 @@
+.night-mode{
+    --cor-principal: #1A1A1A;
+    --cor-secundaria: #2D2D2D;
+    --cor-destaque: #C9B99A;
+
+    --cor-texto: #F0EBE0;
+    --cor-texto2: #1A1A1A;
+
+    --input-placeholder: #888;
+    --input-focus-border: 1px solid #C9B99A;
+    --input-focus-box-shadow: 0 0 0 1px #C9B99A;
+}
+
+.night-mode .st-floor-header h1{
+    color: var(--cor-destaque);
+}
+
+.night-mode .user-cash{
+    color: var(--cor-destaque);
+    background-color: var(--cor-secundaria);
+}
+
+.night-mode .btn-add-item{
+    color: var(--cor-destaque);
+    background-color: var(--cor-secundaria);
+}
+
+
+.night-mode .box-items{
+    background-color: var(--cor-destaque);
+}
+
+.night-mode .item-name{
+    color: var(--cor-destaque);
+}
+
+.night-mode .item-value{
+    color: var(--cor-destaque);
+}
+
+.night-mode .item-progress{
+    background-color: green;
+}
+
+.night-mode .btn-complete{
+    color: var(--cor-destaque);
+    background-color: var(--cor-secundaria);
+}
+
+.night-mode .btn-delete{
+    color: var(--cor-secundaria);
+    background-color: var(--cor-destaque);
+}
+
