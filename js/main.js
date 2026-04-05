@@ -48,7 +48,7 @@ function getInfo(){
 
 
     const name = inputName.value;  // salva antes de limpar
-    const value = inputValue.value;
+    const value = Number(inputValue.value);
 
     inputImg.value = '';
     inputName.value = '';
@@ -96,9 +96,15 @@ function criarCard(info){
     const progressBar = document.createElement('div');
     progressBar.classList.add('box-progress');
 
-    //7. Barra de progresso
+    //7. Area Barra de progresso
+    const areaProgress = document.createElement('div');
+    areaProgress.classList.add('area-progress');
+
+    //7.1 Barra de progresso
     const itemProgress = document.createElement('div');
     itemProgress.classList.add('item-progress');
+
+    metaItem(itemProgress, info.value);
 
     //8. Box btn 
     const boxBtn = document.createElement('div');
@@ -116,7 +122,8 @@ function criarCard(info){
 
     details.appendChild(itemName);
     details.appendChild(itemValue);
-    progressBar.appendChild(itemProgress);
+    progressBar.appendChild(areaProgress);
+    areaProgress.appendChild(itemProgress);
     boxBtn.appendChild(btnCpt);
     boxBtn.appendChild(btnDel);
 
@@ -128,15 +135,38 @@ function criarCard(info){
     boxItem.appendChild(card);
 }
 
-function metaItem(){
-    let userCashStr = document.getElementById('user-amount');
-    let userCashNb = Number(userCashStr.textContent);
-    let metaStr = document.querySelector('.item-value');
-    let metaNb = Number(metaStr);
+function metaItem(fill, meta){
+    let saldoStr = document.getElementById('user-amount');
+    let saldoNb = Number(saldoStr.textContent.replace(/\./g, "").replace(",", "."));
 
+    let metaNb;
 
+    if(typeof meta === 'number'){
+        metaNb = meta;
+    }else{
+        metaNb = Number(meta.textContent.replace("R$:", " ").replace(/\./g, "").replace(",", "."));
+    }
 
+    let calcUCM = (saldoNb / metaNb) * 100;
 
+    fill.style.width = calcUCM + '%';
 }
+
+function atualizarBarras(){
+    let cards = document.querySelectorAll('.itemW');
+
+    cards.forEach(card => {
+        let meta = card.querySelector('.item-value');
+        
+        let fill = card.querySelector('.item-progress');
+
+        metaItem(fill, meta);
+    });
+}
+
+
+
+
+// criando barra de progresso
 
 

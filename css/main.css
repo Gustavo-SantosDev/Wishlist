@@ -344,7 +344,7 @@ main{
 .item-progress{
     height: 100%;
     width: 10%;
-    background-color: rgb(97, 248, 97);
+    background-color: lightgreen;
     border-radius: 10px;
 }
 
