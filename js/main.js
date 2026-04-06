@@ -1,10 +1,10 @@
-function modoDark(){
-    body.classList.toggle('night-mode');
-}
-
 let body = document.querySelector('body');
 
 let btnNight = document.querySelector('.mode');
+
+function modoDark(){
+    body.classList.toggle('night-mode');
+}
 
 btnNight.addEventListener('click', ()=>{
     modoDark(body);
@@ -123,17 +123,17 @@ function criarCard(info){
 
     //8. Box btn 
     const boxBtn = document.createElement('div');
-    boxBtn.classList.add('cpt-del');
+    boxBtn.classList.add('box-btn');
 
     //9. btn complete
     const btnCpt = document.createElement('button');
     btnCpt.classList.add('btn-complete', 'btn');
-    btnCpt.textContent = 'cpt';
+    btnCpt.textContent = '🏆';
 
     //10. btn delete
     const btnDel = document.createElement('button');
     btnDel.classList.add('btn-delete', 'btn');
-    btnDel.textContent = 'del';
+    btnDel.textContent = '❌';
 
     details.appendChild(itemName);
     details.appendChild(itemValue);
