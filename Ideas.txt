@@ -1,6 +1,8 @@
 Filtros
 1. Progresso
 2. Categoria
+3. Data
+4. Preco
 
 Add
 1. Categoria  'automoveis, roupas, acessorios, produtos'

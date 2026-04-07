@@ -1,13 +1,19 @@
 let body = document.querySelector('body');
 
-let btnNight = document.querySelector('.mode');
+let btnNight = document.querySelector('.mode-btn');
 
 function modoDark(){
     body.classList.toggle('night-mode');
+    
+    if(body.classList.contains('night-mode')){
+        btnNight.src = '../img/Frame 2.png';
+    } else {
+        btnNight.src = '../img/Frame 1.png';
+    }
 }
 
 btnNight.addEventListener('click', ()=>{
-    modoDark(body);
+    modoDark();
 })
 
 let btnListStyle = document.querySelector('.list-type');
@@ -16,20 +22,25 @@ function toggleList(){
     let boxItemRow = document.querySelector('.box-items');
     let itemWRow = document.querySelectorAll('.itemW'); 
     let boxPicsRow = document.querySelectorAll('.box-pics');
+    let detailsRow = document.querySelectorAll('.box-name-price');
+    let progressRow = document.querySelectorAll('.box-progress');
+    let boxBtnRow = document.querySelectorAll('.box-btn');
 
     boxItemRow.classList.toggle('row');
     
     itemWRow.forEach(item => {
         item.style.opacity = '0';
         setTimeout(() => {
-        item.classList.toggle('row');
-        item.style.opacity = '1';
-    }, 300);
+            item.classList.toggle('row');
+            item.style.opacity = '1';
+        }, 300);
     });
-    boxPicsRow.forEach(item => {
-        item.classList.toggle('row');
-    });
-}
+
+    boxPicsRow.forEach(item => item.classList.toggle('row'));
+    detailsRow.forEach(item => item.classList.toggle('row'));
+    progressRow.forEach(item => item.classList.toggle('row'));
+    boxBtnRow.forEach(item => item.classList.toggle('row'));
+};
 
 btnListStyle.addEventListener('click', toggleList);
 
@@ -116,6 +127,11 @@ function criarCard(info){
     img.appendChild(imgElement);    
     }
 
+    // Div Row
+
+    const row = document.createElement('div');
+    row.classList.add('row-details');
+
     //3. Detalhes card
     const details = document.createElement('div');
     details.classList.add('box-name-price');
@@ -157,7 +173,7 @@ function criarCard(info){
     const btnDel = document.createElement('button');
     btnDel.classList.add('btn-delete', 'btn');
     btnDel.textContent = '❌';
-
+    
     details.appendChild(itemName);
     details.appendChild(itemValue);
     progressBar.appendChild(areaProgress);
@@ -165,10 +181,22 @@ function criarCard(info){
     boxBtn.appendChild(btnCpt);
     boxBtn.appendChild(btnDel);
 
+    row.appendChild(details);
+    row.appendChild(progressBar);
+    row.appendChild(boxBtn);
+
     card.appendChild(img);
-    card.appendChild(details);
-    card.appendChild(progressBar);
-    card.appendChild(boxBtn);
+    card.appendChild(row);
+
+    const boxItemRow = document.querySelector('.box-items');
+
+    if (boxItemRow.classList.contains('row')) {
+    card.classList.add('row');
+    img.classList.add('row');
+    details.classList.add('row');
+    progressBar.classList.add('row');
+    boxBtn.classList.add('row');
+    }
 
     boxItem.appendChild(card);
 }

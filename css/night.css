@@ -15,6 +15,10 @@
     color: var(--cor-destaque);
 }
 
+.night-mode .mode-btn:hover{
+    filter: drop-shadow(0 0 4px #cac5bb);
+}
+
 .night-mode .user-cash{
     color: var(--cor-destaque);
     background-color: var(--cor-secundaria);
