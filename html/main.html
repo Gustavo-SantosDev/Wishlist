@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/night.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <script defer src="../js/main.js"></script>
     <script defer src="../js/headerMain.js"></script>
@@ -20,7 +21,7 @@
                 <div class="user-name-exit">
                     <div class="user-name-options">
                         <a href="#" id="user-name" class="userName">UserName</a>
-                        <button id="arrow-v" class="arrow-down">˅</button>
+                        <button id="arrow-v" class="arrow-down"><i class="fa-solid fa-chevron-down"></i></button>
                     </div>
                     <button class="btn-exit"><a href="../index.html">Sair</a></button>
                     <div class="mode"><button>N</button></div>
@@ -35,8 +36,16 @@
     <main>
         <div id="overlay"></div>
         <div class="box-main">
-            <div class="header-items">
-                <p>Adicionar filtros</p>
+            <div class="header-filter">
+                <div class="input-filter">
+                    <label for="search-name"></label>
+                    <input type="text" name="search-name" class="search-name" placeholder="Busca por nome">
+                </div>
+                <div class="input-filter">
+                    <label for="search-value"></label>
+                    <input type="text" name="search-value" class="search-value" placeholder="Busca por valor">
+                </div>
+                <button class="list-type">B</button>
             </div>
             <div class="box-gen-items">
                 <label for="add-img" class="fake-ipt-img" >Selecionar Imagem</label>
@@ -50,7 +59,7 @@
 
                 <button id="btn-add-item" class="btn-add-item">ADD</button>
             </div>
-            <div class="box-items">
+            <div class="box-items ">
                 <!-- <div class="itemW" id="itemId">
                     <div class="box-pics">
                         <div id="item-img"></div>

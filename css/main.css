@@ -47,6 +47,7 @@ header{
 
 .user-name-exit{
     display: flex;
+    gap: 5px;
 }
 
 .mode{
@@ -60,20 +61,21 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    margin-right: 10px;
+    gap: 10px;
+    
 }
 
 .arrow-down{
     border: none;
     background-color: transparent;
 
-    font-weight: 600;
     color: var(--cor-texto);
 
-    padding: 10px;
+    padding: 5px;
 
     cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
 .st-floor-header a{
@@ -110,6 +112,8 @@ header{
     justify-content: end;
     flex-direction: row;
 
+    font-weight: 600;
+
     max-height: 0; /* altura zero para ficar colapsado */
     overflow: hidden; /* conteúdo escondido quando fechad0 */
     padding: 0 20px;
@@ -133,8 +137,9 @@ header{
     border: none;
     border-radius: 3px;
 
-    font-weight: 600;
-    padding: 5px;
+    font-weight: 700;
+    
+    padding: 5px 10px;
     margin-right: 10px;
 
     background-color: var(--cor-secundaria);
@@ -183,7 +188,7 @@ main{
     background-color: var(--cor-secundaria);
 }
 
-.header-items, 
+.header-filter, 
 .box-gen-items{
     display: flex;
     align-items: center;
@@ -198,6 +203,15 @@ main{
     padding: 20px;
     margin-bottom: 10px;
     gap: 10px;
+}
+
+.input-filter{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-filter input{
+    padding: 10px;
 }
 
 .input-gen{
@@ -279,6 +293,13 @@ main{
 }
 
 
+.box-items.row{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+}
+
 .itemW{
     display: flex;
     justify-content: center;
@@ -292,6 +313,12 @@ main{
     border-radius: 3px;
 
     background-color: var(--cor-principal);
+}
+
+.itemW.row{
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
 }
 
 .itemW:hover{
@@ -309,14 +336,22 @@ main{
     margin-bottom: 10px;
 
     border-radius: 3px;
-    
 }
+
 
 .box-pics img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 3px;
+}
+
+.box-pics.row{
+    width: 110px;
+    height: 70px;
+    aspect-ratio: unset;
+    margin: 0;
+    flex-shrink: 0;
 }
 
 .box-name-price{

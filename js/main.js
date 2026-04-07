@@ -10,6 +10,29 @@ btnNight.addEventListener('click', ()=>{
     modoDark(body);
 })
 
+let btnListStyle = document.querySelector('.list-type');
+
+function toggleList(){
+    let boxItemRow = document.querySelector('.box-items');
+    let itemWRow = document.querySelectorAll('.itemW'); 
+    let boxPicsRow = document.querySelectorAll('.box-pics');
+
+    boxItemRow.classList.toggle('row');
+    
+    itemWRow.forEach(item => {
+        item.style.opacity = '0';
+        setTimeout(() => {
+        item.classList.toggle('row');
+        item.style.opacity = '1';
+    }, 300);
+    });
+    boxPicsRow.forEach(item => {
+        item.classList.toggle('row');
+    });
+}
+
+btnListStyle.addEventListener('click', toggleList);
+
 let btnAdd = document.getElementById('btn-add-item');
 
 let boxItem = document.querySelector('.box-items');
