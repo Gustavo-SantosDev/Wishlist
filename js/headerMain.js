@@ -13,7 +13,11 @@ arrowBtn.addEventListener('click', () => {
 
     const isOpen = headerNd.classList.contains('active');
     arrowBtn.setAttribute('aria-expanded', isOpen);
-    arrowBtn.textContent = isOpen ? '˄' : '˅';
+    if(isOpen){
+        arrowBtn.style.transform = 'rotate(180deg)';
+    } else{
+        arrowBtn.style.transform = 'rotate(0deg)';
+    }
 });
 
 let btnSaldo = document.getElementById('user-cash');
