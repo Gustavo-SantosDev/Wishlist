@@ -209,12 +209,15 @@ main{
     gap: 10px;
 }
 
-.input-filter{
-    display: flex;
-    flex-direction: column;
+.select-filter{
+
 }
 
-.input-filter input{
+.select-filter select{
+    
+}
+
+.header-filter input{
     padding: 10px;
 }
 

@@ -6,9 +6,9 @@ function modoDark(){
     body.classList.toggle('night-mode');
     
     if(body.classList.contains('night-mode')){
-        btnNight.src = '../img/Frame 2.png';
+        btnNight.src = '../img/LightBtn.png';
     } else {
-        btnNight.src = '../img/Frame 1.png';
+        btnNight.src = '../img/DarkBtn.png';
     }
 }
 
