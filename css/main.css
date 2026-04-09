@@ -209,16 +209,49 @@ main{
     gap: 10px;
 }
 
-.select-filter{
+.header-filter input{
+    padding: 10px;
+}
 
+.select-filter{
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .select-filter select{
-    
+    padding: 9px 0;
+
+    color: var(--cor-texto);
+
+    border: 1px solid transparent;
+    border-radius: 3px;
+
+    outline: none;
+
+    font-family: var(--font-principal);
+    transition: 0.3s ease;
+    cursor: pointer;
 }
 
-.header-filter input{
-    padding: 10px;
+.btn-filter{
+    display: flex;
+    align-items: center;
+}
+
+.search-icon{
+    display: block;
+    height: 25px;
+    padding: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+
+.search-icon:hover{
+    transform: scale(1.050);
+    filter: drop-shadow(0 0 4px var(--cor-principal-opacity));
 }
 
 .input-gen{
