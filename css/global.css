@@ -6,6 +6,7 @@
 
 :root{
     --cor-principal: #EBE7DA;
+    --cor-principal-opacity: rgba(235, 231, 218, 0.6);
     --cor-secundaria: #D6CFC2;
     --cor-destaque: #65615b;
 
